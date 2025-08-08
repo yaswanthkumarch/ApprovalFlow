@@ -1,4 +1,4 @@
-name: Approval Workflow
+name: Approval
 
 on:
   push:

@@ -20,12 +20,12 @@ jobs:
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
           subject: 'Action needed: Approve deployment'
-          to: ${{ secrets.APPROVER_EMAIL }}
+          to: yaswanth@middlewaretalents.com
           from: github-actions@example.com
           body: |
-            Hello,
+            Hello Yaswanth,
 
-            Please approve the deployment by reviewing and approving the GitHub Actions job 
+            Please approve the deployment by reviewing and approving the GitHub Actions job
             in the 'production' environment at:
 
             https://github.com/${{ github.repository }}/actions

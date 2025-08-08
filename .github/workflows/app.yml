@@ -1,4 +1,4 @@
-name: New Workflow
+name: Approval Workflow
 
 on:
   push:
@@ -7,8 +7,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      run_id: ${{ github.run_id }}
     steps:
       - uses: actions/checkout@v3
+
       - name: Say Hello
         run: echo "Hello, world!"
 
@@ -25,13 +28,15 @@ jobs:
           body: |
             Hello Yaswanth,
 
-            Please approve the deployment by reviewing and approving the GitHub Actions job
-            in the 'production' environment at:
+            Please approve the deployment by clicking the link below and approving 
+            the deployment in the 'production' environment on GitHub Actions:
 
-            https://github.com/${{ github.repository }}/actions
+            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            Once approved, the deployment job will proceed automatically.
 
             Thanks!
-            
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
